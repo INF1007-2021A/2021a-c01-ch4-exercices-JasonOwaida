@@ -3,24 +3,60 @@
 
 
 def is_even_len(string: str) -> bool:
-    pass
+    if ((len(string) % 2) == 0):
+        return True
+
+    return False
 
 
 def remove_third_char(string: str) -> str:
-    pass
+
+    resultat = ""
+
+    for i in range(0, len(string)):
+        if i != 2:
+            resultat = resultat + string[i]
+
+    return resultat
+
 
 
 def replace_char(string: str, old_char: str, new_char: str) -> str:
-    pass
+
+    resultat = ""
+
+    for i in string:
+        if i == old_char:
+            i = new_char
+        resultat += i
+
+    return resultat
+
 
 
 def get_number_of_char(string: str, char: str) -> int:
+
+    count = 0
+    for i in string:
+        if i == char:
+            count = count + 1
+        else:
+            continue
+
+    return count
+
     pass
 
 
 def get_number_of_words(sentence: str, word: str) -> int:
-    pass
 
+    resultat = sentence.split(" ")
+    count = 0
+    for i in sentence:
+        if i == word:
+            count = count + 1
+
+    return count
 
 def main() -> None:
     chaine = "Bonjour!"
@@ -30,12 +66,12 @@ def main() -> None:
         print(f"Le nombre de caractère dans la chaine {chaine} est impair")
 
     chaine = "salut monde!"
-    print(f"On supprime le 3e caratère dans la chaine: {chaine}. Résultat : {remove_third_char(chaine)}")
+    print(f"On supprime le 3e caractère dans la chaine: {chaine}. Résultat : {remove_third_char(chaine)}")
 
     chaine = "hello world!"
-    print(f"On remplace le caratère w par le caractère z dans la chaine: {chaine}. Résultat : {replace_char(chaine, 'w', 'z')}")
+    print(f"On remplace le caractère w par le caractère z dans la chaine: {chaine}. Résultat : {replace_char(chaine, 'w', 'z')}")
 
-    print(f"Le nombre d'occurrence de l dans hello est : {get_number_of_char(chaine, 'l')}")
+    print(f"Le nombre d'occurrence de l dans hello world est : {get_number_of_char(chaine, 'l')}")
     
     chaine = "Baby shark doo doo doo doo doo doo"
     print(f"L'occurence du mot doo dans la chaine {chaine} est: {get_number_of_words(chaine, 'doo')}")
